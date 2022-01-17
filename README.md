@@ -1,1 +1,1 @@
-# YBBook-shop
+# YBBook is Your Best (ever) Book shop

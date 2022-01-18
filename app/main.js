@@ -4,7 +4,7 @@ const controllerBooks = new ControllerBooks();
 const URL_SHEET = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQirlHBLU299aaZ7rqDdrC48Cb50Tb-8s_YK7-XIIpoFAS9uy9pnDki0uuxehglgHYLID9xt7q4wWRg/pub?output=tsv";
 const BODY_MAIN = document.body.querySelector("main"); //V
 
-fetch(URL_SHEET) //M
+/* fetch(URL_SHEET) //M
    .then((r) => r.text())
    .then((d) => {
       console.log(d);
@@ -56,3 +56,4 @@ const getBookHTML = ({
         </div>
       </div>`;
 };
+ */

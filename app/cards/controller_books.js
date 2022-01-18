@@ -1,13 +1,13 @@
-import ModelBooks from "./model_books";
-import ViewBooks from "./view_books";
+import ModelBooks from "./model_books.js";
+import ViewBooks from "./view_books.js";
 
 export default class ControllerBooks {
-  constructor() {
-    this.modal = new ModelBooks();
-    this.view = new ViewBooks();
-    this.init();
-  }
-  init() {
-    this.model.getData().then((d) => this.view.renderBooks(d));
-  }
+   constructor() {
+      this.model = new ModelBooks();
+      this.view = new ViewBooks();
+      this.init();
+   }
+   init() {
+      this.model.getData().then((d) => this.view.renderBooks(d));
+   }
 }

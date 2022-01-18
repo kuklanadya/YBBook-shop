@@ -1,3 +1,17 @@
 main {
-  display: flex;
+   display: flex;
+   flex-wrap: wrap;
+}
+img {
+   width: 280px;
+   height: 440px;
+}
+
+.card {
+   border: none;
+}
+
+.m-2 {
+   border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 5px;
 }

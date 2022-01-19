@@ -12,7 +12,7 @@ export default class ControllerFilter {
 
    handleFilterClick = (event) => {
       let filterType = [];
-      let formCheckDivs = [...event.target.closest('.genres').children].slice(0, -1);
+      let formCheckDivs = [...event.target.closest('.genres').children].slice(1, -1);
       formCheckDivs.forEach(div => {
          if (div.firstElementChild.checked) {
             filterType.push(div.firstElementChild.value)
@@ -20,4 +20,4 @@ export default class ControllerFilter {
       });
       this.publisher.notify('ON_CLICK_FILTER', filterType);
    }
-}
+} 

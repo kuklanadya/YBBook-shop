@@ -1,23 +1,22 @@
 export default class ViewSort {
    BODY_HEADER = document.body.querySelector("header");
-   SELECT_BUTTON = document.querySelector(".select__sort");
 
-   constructor(handleClickBtnSort) {
-      this.handleClickBtnSort = handleClickBtnSort;
+   constructor(handleSortClick) {
+      this.handleSortClick = handleSortClick;
    }
 
    init() {
       this.renderButtons();
-      this.addListeners(this.handleClickBtnSort);
+      this.addListeners(this.handleSortClick);
    }
 
    addListeners(listener) {
-      document.querySelector('.select--sort').addEventListener('change', listener);
+      document.querySelector('.select-sort').addEventListener('change', listener);
    }
 
    renderButtons() {
       const buttonsStr = `
-      <select class="select--sort">
+      <select class="select-sort">
          <option value="">Сортировать</option>
          <option value="price-dn" class="btn--sort">По убыванию цены</option>
          <option value="rating-dn" class="btn--sort">По убыванию рейтинга</option>

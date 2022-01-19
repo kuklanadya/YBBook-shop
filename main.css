@@ -1,17 +1,43 @@
 main {
+   margin: 15px;
    display: flex;
    flex-wrap: wrap;
 }
+
+header {
+   margin: 20px 25px 5px;
+}
+
 img {
-   width: 280px;
-   height: 440px;
+   padding: 16px;
+   min-width: 150px;
+   max-width: 150px;
+   height: 220px;
 }
 
 .card {
+   font-size: 14px;
    border: none;
+   display: flex;
+   flex-direction: row;
+}
+
+p {
+   margin-bottom: 10px;
 }
 
 .m-2 {
    border: 1px solid rgba(0, 0, 0, 0.125);
    border-radius: 5px;
+}
+
+select {
+   width: 235px;
+   padding: 5px 10px;
+   cursor: pointer;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   background: url("/img/down-arrow.svg") center right 10px no-repeat;
+   background-size: 12px;
 }

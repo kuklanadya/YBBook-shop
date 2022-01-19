@@ -15,11 +15,11 @@ export default class ViewCards {
             <h5 class="card-title">${title}</h5>
             <!--book name -->
             <p class="card-text">Автор: ${author}</p>
-            <p class="card-text">Описание: ${description}</p>
+            <div class="card-text card-desc">Описание: ${description}</div>
             <p class="card-text">Год публикации: ${year}</p>
             <p class="card-text">Жанр: ${genre}</p>
             <p class="card-text">Рейтинг: ${rating}</p>
-            <p class="card-text">Цена: ${price} грн.</p>
+            <p class="card-text">Цена: <span>${price}</span> грн.</p>
             <a href="#" class="btn btn-primary">Купить</a>
           </div>
         </div>

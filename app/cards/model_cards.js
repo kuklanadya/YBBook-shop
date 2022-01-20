@@ -16,25 +16,24 @@ export default class ModelCards {
             return obj;
          }, {})
       );
-      this.data = data;
+      this.DATA = data;
       return data;
    }
 
    sortData([sortType, i]) {
       const sortVoc = { "price-up": 1, "price-dn": -1, "rating-up": 1, "rating-dn": -1 }
       let param = i % 2 === 0 ? "price" : "rating";
-
+      this.data = this.DATA;
       this.data.sort((a, b) => (a[param] - b[param]) * sortVoc[sortType]);
       return this.data;
    }
 
    filterData(filterType) {
-      this.filtredData = [];
+      this.data = [];
       for (const type of filterType) {
-         let filtredSubarray = this.data.filter((d) => d.genre.includes(type));
-         this.filtredData = this.filtredData.concat(filtredSubarray);
+         let filtredSubarray = this.DATA.filter((d) => d.genre.includes(type));
+         this.data = this.data.concat(filtredSubarray);
       }
-      this.filtredData = Array.from(new Set(this.filtredData));
-      return this.filtredData.length !== 0 ? this.filtredData : this.data;
+      return this.data.length !== 0 ? this.data : this.DATA;
    }
 }

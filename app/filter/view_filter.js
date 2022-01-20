@@ -80,6 +80,19 @@ export default class ViewFilter {
             </label>
           </div>
           <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value="повесть"
+            id="flexCheckChecked"
+            data-btn='checkbox_genres'
+
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            Повесть
+          </label>
+        </div>
+          <div class="form-check">
             <input
               class="form-check-input"
               type="checkbox"

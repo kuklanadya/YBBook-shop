@@ -7,14 +7,13 @@ export default class ControllerSort {
       this.handleSortByControllerCards = handleSortByControllerCards;
 
       this.view.init();
-
       this.publisher = new Publisher();
    }
 
-   handleClickBtnSort = event => {
+   handleClickBtnSort = (event) => {
       const params = [...event.target.children].slice(1).map(el => el.value);
       const sortType = event.target.value;
-      const i = params.findIndex(el => el === sortType)
-      this.publisher.notify('ON_CLICK_SORT', [sortType, i])
+      const i = params.findIndex(el => el === sortType);
+      this.publisher.notify('ON_CLICK_SORT', [sortType, i]);
    }
 }

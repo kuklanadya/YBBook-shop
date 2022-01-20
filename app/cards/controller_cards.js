@@ -11,6 +11,7 @@ export default class ControllerCards {
 
       this.publisher = new Publisher();
       this.publisher.subscribe('ON_CLICK_SORT', this.handleSort);
+      this.publisher.subscribe('ON_CLICK_FILTER', this.handleFilter);
    }
 
    init() {
@@ -19,6 +20,11 @@ export default class ControllerCards {
 
    handleSort = ([sortType, i]) => {
       const data = this.model.sortData([sortType, i]);
+      this.view.renderCards(data);
+   }
+
+   handleFilter = (filterType) => {
+      const data = this.model.filterData(filterType);
       this.view.renderCards(data);
    }
 }

@@ -7,7 +7,7 @@ export default class ModelCards {
          .then(data => this.parseSheet(data));
    }
 
-   parseSheet(tsv) {
+   parseSheet = tsv => {
       const d = tsv.split("\r\n").map((line) => line.split("\t"));
       const keys = d.shift();
       const data = d.map((arr) =>
@@ -20,11 +20,21 @@ export default class ModelCards {
       return data;
    }
 
-   sortData(sortType, i) {
+   sortData([sortType, i]) {
       const sortVoc = { "price-up": 1, "price-dn": -1, "rating-up": 1, "rating-dn": -1 }
       let param = i % 2 === 0 ? "price" : "rating";
 
       this.data.sort((a, b) => (a[param] - b[param]) * sortVoc[sortType]);
       return this.data;
+   }
+
+   filterData(filterType) {
+      this.filtredData = [];
+      for (const type of filterType) {
+         let filtredSubarray = this.data.filter((d) => d.genre.includes(type));
+         this.filtredData = this.filtredData.concat(filtredSubarray);
+      }
+      this.filtredData = Array.from(new Set(this.filtredData));
+      return this.filtredData.length !== 0 ? this.filtredData : this.data;
    }
 }

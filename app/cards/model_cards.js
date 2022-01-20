@@ -34,6 +34,7 @@ export default class ModelCards {
          let filtredSubarray = this.data.filter((d) => d.genre.includes(type));
          this.filtredData = this.filtredData.concat(filtredSubarray);
       }
+      this.filtredData = Array.from(new Set(this.filtredData));
       return this.filtredData.length !== 0 ? this.filtredData : this.data;
    }
 }

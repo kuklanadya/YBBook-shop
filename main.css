@@ -45,6 +45,10 @@ label {
    flex-direction: row;
 }
 
+.card-text:nth-child(6) {
+   margin-bottom: 2px;
+}
+
 .card-desc {
    display: none; /*ДЛЯ МОДАЛКИ*/
    height: 85px;
@@ -57,7 +61,7 @@ label {
 }
 
 .card-text span {
-   font-size: 20px;
+   font-size: 18px;
    font-weight: 500;
 }
 
@@ -82,4 +86,27 @@ label {
 
 .genres h6 {
    margin-top: 8px;
+}
+
+.backdrop {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: red;
+   z-index: 100;
+
+   pointer-events: none;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+}
+
+.show-modal .backdrop {
+   opacity: 1;
+   visibility: visible;
+   pointer-events: initial;
 }

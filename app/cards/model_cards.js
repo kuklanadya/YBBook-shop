@@ -17,13 +17,13 @@ export default class ModelCards {
          }, {})
       );
       this.DATA = data;
+      this.data = data;
       return data;
    }
 
    sortData([sortType, i]) {
       const sortVoc = { "price-up": 1, "price-dn": -1, "rating-up": 1, "rating-dn": -1 }
       let param = i % 2 === 0 ? "price" : "rating";
-      this.data = this.DATA;
       this.data.sort((a, b) => (a[param] - b[param]) * sortVoc[sortType]);
       return this.data;
    }
@@ -34,6 +34,11 @@ export default class ModelCards {
          let filtredSubarray = this.DATA.filter((d) => d.genre.includes(type));
          this.data = this.data.concat(filtredSubarray);
       }
-      return this.data.length !== 0 ? this.data : this.DATA;
+      return this.data;
+   }
+
+   findModalCard(modalCardId) {
+      const modalCardObj = this.data.find(card => card.id === modalCardId);
+      return modalCardObj;
    }
 }

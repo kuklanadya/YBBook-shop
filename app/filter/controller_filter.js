@@ -2,15 +2,15 @@ import Publisher from "../publisher.js";
 import ViewFilter from "./view_filter.js";
 
 export default class ControllerFilter {
-   constructor(handleFilterByControllerCards) {
+   constructor() {
       this.view = new ViewFilter(this.handleFilterClick);
-      this.handleFilterByControllerCards = handleFilterByControllerCards;
 
       this.view.init();
       this.publisher = new Publisher();
    }
 
    handleFilterClick = (event) => {
+      document.querySelector('.select-sort').value = '';
       let filterType = [];
       let formCheckDivs = [...event.target.closest('.genres').children].slice(1, -1);
       formCheckDivs.forEach(div => {

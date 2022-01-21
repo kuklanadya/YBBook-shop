@@ -12,19 +12,31 @@ export default class ControllerCards {
       this.publisher = new Publisher();
       this.publisher.subscribe('ON_CLICK_SORT', this.handleSort);
       this.publisher.subscribe('ON_CLICK_FILTER', this.handleFilter);
+      this.publisher.subscribe('ON_CARD_CLICK', this.handleModal);
    }
 
    init() {
-      this.model.getData().then((data) => this.view.renderCards(data));
+      this.model.getData().then((data) => {
+         this.view.renderCards(data);
+         this.publisher.notify('ON_RENDER_CARDS');
+      })
    }
 
    handleSort = ([sortType, i]) => {
       const data = this.model.sortData([sortType, i]);
       this.view.renderCards(data);
+      this.publisher.notify('ON_RENDER_CARDS');
    }
 
    handleFilter = (filterType) => {
       const data = this.model.filterData(filterType);
       this.view.renderCards(data);
+      this.publisher.notify('ON_RENDER_CARDS');
+   }
+
+   handleModal = (modalCardId) => {
+      const modalCardObj = this.model.findModalCard(modalCardId);
+      this.view.renderModalCard(modalCardObj);
+      this.view.addCloseModalListeners();
    }
 }

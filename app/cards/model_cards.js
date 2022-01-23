@@ -49,7 +49,9 @@ export default class ModelCards {
   }
 
   getBooksByQuery(searchQuery) {
-    const getBook = this.data.filter((s) => s.title.includes(searchQuery));
+    const getBook = this.data.filter((s) =>
+      s.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     if (getBook.length === 0) {
       alert("Книги с таким названием не найдено");

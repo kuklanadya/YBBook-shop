@@ -15,7 +15,12 @@ export default class ControllerSearch {
 
     const searchedData = [];
     searchedData.push(getBook);
-
+    this.clearInput();
     this.publisher.notify("ON_SEARCH", this.searchQuery);
   };
+
+  clearInput() {
+    const input = document.querySelector(".form-control");
+    input.value = "";
+  }
 }

@@ -1,139 +1,137 @@
 main {
-  margin: 15px;
-  display: flex;
-  flex-wrap: wrap;
+   margin: 15px;
+   display: flex;
+   flex-wrap: wrap;
 }
 
 header {
-  margin: 20px 25px 5px;
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+   margin: 20px 25px 5px;
+   display: flex;
+   gap: 30px;
+   align-items: flex-start;
 }
 
 select {
-  font-size: 14px;
-  width: 235px;
-  padding: 5px 10px;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url("/img/down-arrow.svg") center right 10px no-repeat;
-  background-size: 12px;
+   font-size: 14px;
+   width: 235px;
+   padding: 5px 10px;
+   cursor: pointer;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   background: url("/img/down-arrow.svg") center right 10px no-repeat;
+   background-size: 12px;
 }
 
 img {
-  padding: 16px;
-  min-width: 150px;
-  max-width: 150px;
-  height: 220px;
+   padding: 16px;
+   min-width: 150px;
+   max-width: 150px;
+   height: 220px;
 }
 
 p {
-  margin-bottom: 8px;
+   margin-bottom: 8px;
 }
 
 label {
-  font-size: 14px;
+   font-size: 14px;
 }
 
 .close:hover {
-  opacity: 1;
-  cursor: pointer;
+   cursor: pointer;
 }
-.close:before,
-.close:after {
-  content: " ";
-  position: absolute;
-  top: 16px;
-  right: 26px;
-  height: 20px;
-  width: 2px;
-  background-color: rgb(0, 0, 0, 0.6);
+.close:hover::before,
+.close:hover::after {
+   background-color: rgb(255, 0, 0, 0.6);
+}
+.close::before,
+.close::after {
+   content: " ";
+   position: absolute;
+   top: 16px;
+   right: 26px;
+   height: 20px;
+   width: 2px;
+   background-color: rgb(0, 0, 0, 0.6);
 }
 .close:before {
-  transform: rotate(45deg);
+   transform: rotate(45deg);
 }
 .close:after {
-  transform: rotate(-45deg);
+   transform: rotate(-45deg);
 }
 
 .card {
-  font-size: 14px;
-  border: none;
-  display: flex;
-  flex-direction: row;
+   font-size: 14px;
+   border: none;
+   display: flex;
+   flex-direction: row;
+   border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 5px;
 }
 
 .card-text:nth-child(6) {
-  margin-bottom: 2px;
+   margin-bottom: 2px;
 }
 
 .card-desc {
-  height: 85px;
-  overflow-y: auto;
-  margin-bottom: 8px;
+   height: 85px;
+   overflow-y: auto;
+   margin-bottom: 8px;
 }
 
 .card-text span {
-  font-size: 18px;
-  font-weight: 500;
+   font-size: 18px;
+   font-weight: 500;
 }
-
-.card {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 5px;
-}
-
 .card:hover,
 .card.active {
-  box-shadow: 0px 0px 50px -5px rgba(34, 60, 80, 0.2);
-  transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+   box-shadow: 0px 0px 50px -5px rgba(34, 60, 80, 0.2);
+   transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
 }
 
 .btn {
-  padding: 8px 26px;
+   padding: 8px 26px;
 }
 
 .form-check:last-of-type {
-  margin-bottom: 8px;
+   margin-bottom: 8px;
 }
 
 .genres h6 {
-  margin-top: 8px;
+   margin-top: 8px;
 }
 
 html,
 body {
-  height: 100%;
+   height: 100%;
 }
 
 .backdrop {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  background-color: rgba(128, 128, 128, 0.3);
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 0;
+   left: 0;
+   z-index: 100;
+   background-color: rgba(128, 128, 128, 0.3);
 
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 200ms ease-in-out;
+   pointer-events: none;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 200ms ease-in-out;
 }
 
 .backdrop.show-modal {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: initial;
+   opacity: 1;
+   visibility: visible;
+   pointer-events: initial;
 }
 
-/* инпут */
 .input-group {
-  width: 500px;
+   width: 500px;
 }

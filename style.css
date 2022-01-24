@@ -8,7 +8,7 @@ main {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
@@ -17,12 +17,12 @@ header {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
+  grid-template-columns: 50% 50%;
   -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  grid-template-rows: auto;
   -webkit-box-align: top;
-      -ms-flex-align: top;
-          align-items: top;
+  -ms-flex-align: top;
+  align-items: top;
 }
 
 .select-sort {
@@ -39,8 +39,8 @@ header {
   width: 100%;
   border: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background: url("/img/down-arrow.svg") center right 10px no-repeat;
   background-size: 12px;
 }
@@ -52,7 +52,7 @@ header {
 .input-group {
   padding: 10px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .input-group img {
@@ -91,9 +91,10 @@ header {
   color: black;
 }
 
-.input-group input:active, .input-group input:focus {
+.input-group input:active,
+.input-group input:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .btn {
@@ -105,9 +106,10 @@ header {
   padding: 5px 10px;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-color: black;
   background-color: black;
   color: white;
@@ -151,7 +153,8 @@ h2:before {
   cursor: pointer;
 }
 
-.close::before, .close::after {
+.close::before,
+.close::after {
   content: " ";
   position: absolute;
   top: 16px;
@@ -163,17 +166,18 @@ h2:before {
 
 .close:before {
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .close:after {
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
-.close:hover::before, .close:hover::after {
+.close:hover::before,
+.close:hover::after {
   background-color: rgba(255, 0, 0, 0.6);
 }
 
@@ -202,6 +206,9 @@ h2:before {
   max-height: 280px;
   overflow: visible;
   margin-bottom: 10px;
+  -webkit-transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .card {
@@ -214,7 +221,7 @@ h2:before {
   border: 0;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "title genres" "image image" "rating price";
+  grid-template-areas: "title genres" "image image" "rating price";
   border-right: 1px solid rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
@@ -262,9 +269,10 @@ h2:before {
   max-height: 210px;
 }
 
-.card:hover, .card.active {
+.card:hover,
+.card.active {
   -webkit-box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
-          box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
   -webkit-transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
   -o-transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
   transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
@@ -277,8 +285,8 @@ h2:before {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   width: 50%;
 }
 
@@ -298,7 +306,7 @@ h2:before {
 
 .form-check-input[type="checkbox"]:focus {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -314,11 +322,11 @@ h2:before {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   top: 0;
   left: 0;
   z-index: 100;

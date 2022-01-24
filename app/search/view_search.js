@@ -17,9 +17,9 @@ export default class ViewSearch {
    getInputSearch() {
       const inputSearchArea = `
       <div class="input-group">
-        <span class="input-group-text">Твоя книга</span>
-        <input type="text" class="form-control" name="query" placeholder="Введите заголовок" aria-label="Search by name" aria-describedby="basic-addon1">
+      <img src="/img/search.svg" alt="search">
+      <input type="text" class="form-control" name="query" placeholder="Поиск" aria-label="Search by name">
       </div>`;
-      this.BODY_HEADER.insertAdjacentHTML("afterbegin", inputSearchArea);
+      this.BODY_HEADER.insertAdjacentHTML("beforeend", inputSearchArea);
    }
 }

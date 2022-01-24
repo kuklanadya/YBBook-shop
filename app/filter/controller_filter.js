@@ -10,9 +10,9 @@ export default class ControllerFilter {
    }
 
    handleFilterClick = (event) => {
-      document.querySelector('.select-sort').value = '';
+      document.querySelector('.accordion_content').value = '';
       let filterType = [];
-      let formCheckDivs = [...event.target.closest('.genres').children].slice(1, -1);
+      let formCheckDivs = [...event.target.closest('.accordion_content').children].slice(1, -1);
       formCheckDivs.forEach(div => {
          if (div.firstElementChild.checked) {
             filterType.push(div.firstElementChild.value)

@@ -59,10 +59,13 @@ export default class ModelCards {
 
    getBooksByQuery(searchQuery) {
       const input = document.querySelector(".form-control");
-      const getBooks = this.data.filter((s) =>
+      const getBooksByTitle = this.data.filter((s) =>
          s.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
-
+      const getBooksByAuthor = this.data.filter((s) =>
+         s.author.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      const getBooks = Array.from(new Set(getBooks.concat(getBooksByTitle).concat(getBooksByAuthor)));
       if (getBooks.length === 0) {
          alert("Книги с таким названием не найдено");
          input.value = "";

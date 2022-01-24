@@ -17,8 +17,10 @@ export default class ControllerCards {
    }
 
    init() {
+      this.view.renderHeader();
       this.model.getData().then((data) => {
          this.view.renderCards(data);
+         this.model.addGenresAccordion();
          this.publisher.notify("ON_RENDER_CARDS");
       });
    }

@@ -16,7 +16,7 @@ export default class ViewFilter {
 
    renderGenresFilter() {
       const checkboxGenres = `
-        <section class="genres accordion" >
+        <section class="accordion" >
           <div class="accordion_header"><h4>Жанры</h4></div>
           <div class="accordion_content">
           <div class="form-check">

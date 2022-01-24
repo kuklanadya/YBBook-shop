@@ -24,6 +24,6 @@ export default class ViewSort {
          <option value="rating-up" class="btn--sort">По возрастанию рейтинга</option>
        </select>
       `;
-      this.BODY_HEADER.insertAdjacentHTML("afterbegin", buttonsStr);
+      this.BODY_HEADER.insertAdjacentHTML("beforeend", buttonsStr);
    }
 }

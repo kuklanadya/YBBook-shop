@@ -34,6 +34,15 @@ export default class ModelCards {
       return this.data;
    }
 
+   addGenresAccordion() {
+      const header = document.querySelector(".accordion_header");
+      const content = header.nextElementSibling;
+      header.addEventListener('click', () => {
+         header.classList.toggle('active');
+         content.classList.toggle('active');
+      });
+   }
+
    filterData(filterType) {
       this.data = [];
       for (const type of filterType) {

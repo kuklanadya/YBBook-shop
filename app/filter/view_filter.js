@@ -16,8 +16,9 @@ export default class ViewFilter {
 
    renderGenresFilter() {
       const checkboxGenres = `
-        <section class="genres" >
-          <h6>Жанры</h6>
+        <section class="genres accordion" >
+          <div class="accordion_header"><h4>Жанры</h4></div>
+          <div class="accordion_content">
           <div class="form-check">
             <input class="form-check-input genres" type="checkbox"
             value="роман" id="flexCheckDefault" data-btn='checkbox_genres'/>
@@ -118,8 +119,9 @@ export default class ViewFilter {
             </label>
           </div>
           <button class="btn btn-primary filter-genres">Искать</button>
+         </div>
         </section>
         `;
-      this.BODY_HEADER.insertAdjacentHTML("afterbegin", checkboxGenres);
+      this.BODY_HEADER.insertAdjacentHTML("beforeend", checkboxGenres);
    }
 }

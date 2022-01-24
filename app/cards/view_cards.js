@@ -1,5 +1,6 @@
 export default class ViewCards {
    BODY_MAIN = document.body.querySelector("main");
+   BODY_HEADER = document.body.querySelector("header");
 
    renderCards(cards) {
       this.BODY_MAIN.innerHTML = "";
@@ -10,9 +11,9 @@ export default class ViewCards {
    renderModalCard({ id, title, author, image, price, description, genre, year, rating }) {
       const modal = `
       <div class="backdrop show-modal">
-        <div class="card active" style="width: 40rem" data-id="${id}">
+        <div class="card active" data-id="${id}">
         <span class="close"></span>
-          <img src="${image}" class="card-img-top" alt="${title}"/>
+          <img src="${image}" class="card-img" alt="${title}"/>
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <!--book name -->
@@ -43,10 +44,18 @@ export default class ViewCards {
       document.querySelector(".backdrop").remove();
    }
 
+   renderHeader = () => {
+      const header = `
+      <div>
+         <h2>YBBooks</h2>
+      </div>`;
+      this.BODY_HEADER.insertAdjacentHTML("afterbegin", header);
+   }
+
    getBookHTML({ id, title, author, image, price, description, genre, year, rating }) {
       return `
-        <div class="card m-2" style="width: 30rem" data-id="${id}">
-          <img src="${image}" class="card-img-top" alt="${title}"/>
+        <div class="card" data-id="${id}">
+          <img src="${image}" class="card-img" alt="${title}"/>
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <!--book name -->

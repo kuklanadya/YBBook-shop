@@ -12,8 +12,8 @@ export default class ViewCards {
       const modal = `
       <div class="backdrop show-modal">
         <div class="card active" data-id="${id}">
+        <img src="${image}" class="card-img" alt="${title}"/>
         <span class="close"></span>
-          <img src="${image}" class="card-img" alt="${title}"/>
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <!--book name -->
@@ -22,7 +22,7 @@ export default class ViewCards {
             <p class="card-text">Год публикации: ${year}</p>
             <p class="card-text">Жанр: ${genre}</p>
             <p class="card-text">Рейтинг: ${rating}</p>
-            <p class="card-text">Цена: <span>${price}</span> грн.</p>
+            <p class="card-text">Цена: <span>${price}₴</span></p>
             <a href="#" class="btn btn-primary">Купить</a>
           </div>
          </div>
@@ -54,17 +54,17 @@ export default class ViewCards {
 
    getBookHTML({ id, title, author, image, price, description, genre, year, rating }) {
       return `
-        <div class="card" data-id="${id}">
-          <img src="${image}" class="card-img" alt="${title}"/>
-          <div class="card-body">
-            <h5 class="card-title">${title}</h5>
-            <!--book name -->
-            <p class="card-text">Автор: ${author}</p>
-            <p class="card-text">Жанр: ${genre}</p>
-            <p class="card-text">Рейтинг: ${rating}</p>
-            <p class="card-text">Цена: <span>${price}</span> грн.</p>
-            <a href="#" class="btn btn-primary">Купить</a>
-          </div>
+      <div class="card" data-id="${id}">
+         <div class="card-head">
+          <p class="card-title">${title}</p>
+            <p class="card-text">${author}</p>
+         </div>
+         <p class="card-text card-genre">${genre}</p>
+         <img src="${image}" class="card-img" alt="${title}" />
+         <p class="card-text card-rating"><span>${rating}</span></p>
+         <div class="card-buy">
+            <p class="card-text"><span>${price}₴</span></p>
+         </div>
       </div>`;
    }
 }

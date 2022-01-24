@@ -14,7 +14,6 @@ main {
 
 header {
   overflow: hidden;
-  padding: 10px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50% 50%;
@@ -27,28 +26,31 @@ header {
 }
 
 .select-sort {
-  margin-left: 10px;
+  padding: 10px 10px 35px;
   line-height: 1.2;
-  margin-top: 10px;
-  text-transform: uppercase;
   font-size: 20px;
   max-height: 35px;
+  outline: 1px solid #000;
+}
+
+.select-sort select {
   cursor: pointer;
+  text-transform: uppercase;
+  width: 100%;
+  border: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   background: url("/img/down-arrow.svg") center right 10px no-repeat;
   background-size: 12px;
-  border: 0;
 }
 
-.select-sort:focus-visible {
+.select-sort select:focus-visible {
   outline: 0;
 }
 
 .input-group {
-  margin-left: 10px;
-  margin-bottom: 5px;
+  padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -99,7 +101,7 @@ header {
   border-radius: 0;
   background-color: white;
   color: black;
-  font-weight: 500;
+  padding: 5px 10px;
 }
 
 .btn:hover, .btn:focus {
@@ -108,10 +110,6 @@ header {
   border-color: black;
   background-color: black;
   color: white;
-}
-
-p {
-  margin-bottom: 8px;
 }
 
 label {
@@ -125,14 +123,14 @@ h2 {
   text-transform: uppercase;
   font-size: 28px;
   position: relative;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 h2:after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: -10px;
+  bottom: 0px;
+  left: 0px;
   width: 100vw;
   height: 1px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -142,7 +140,7 @@ h2:before {
   content: "";
   position: absolute;
   right: 0px;
-  top: -10px;
+  top: 0px;
   width: 1px;
   height: 390px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -152,12 +150,11 @@ h2:before {
   cursor: pointer;
   position: relative;
   font-size: 20px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 0;
+  padding: 10px;
   font-weight: 400;
-  margin-top: 15px;
   text-transform: uppercase;
-  background: url("/img/down-arrow.svg") top 10px right 20px no-repeat;
+  background: url("/img/down-arrow.svg") top 20px right 20px no-repeat;
   background-size: 12px;
 }
 
@@ -197,19 +194,83 @@ h2:before {
   -webkit-transition: all 0.5s linear;
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
+  margin-left: 10px;
 }
 
 .accordion_content.active {
-  max-height: 350px;
+  max-height: 280px;
   overflow: visible;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .card {
+  padding: 10px;
   width: 25%;
+  text-transform: uppercase;
   font-size: 14px;
+  line-height: 1.3;
   border-radius: 0;
   border: 0;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "title genres" "image image" "rating price";
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+.card-genre {
+  text-align: right;
+}
+
+.card-text span {
+  font-size: 20px;
+}
+
+.card-text:nth-child(6) {
+  margin-bottom: 4px;
+}
+
+.card-buy {
+  text-align: right;
+}
+
+.card-desc {
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  max-height: 80px;
+  overflow-y: auto;
+  text-transform: none;
+}
+
+.card-img {
+  padding: 10px;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: image;
+  margin: 0 auto;
+  max-width: 150px;
+  max-height: 210px;
+}
+
+.card:hover, .card.active {
+  -webkit-box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
+          box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
+  -webkit-transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+  -o-transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+  transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+  z-index: 5;
+}
+
+.card.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -217,45 +278,27 @@ h2:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border-right: 1px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.card-text span {
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.card-text:nth-child(6) {
-  margin-bottom: 2px;
-}
-
-.card-title {
-  font-weight: 400;
-}
-
-.card-desc {
-  height: 85px;
-  overflow-y: auto;
-  margin-bottom: 8px;
-}
-
-.card-img {
-  padding: 10px;
-  max-width: 150px;
-  max-height: 210px;
-}
-
-.card:hover, .card.active {
-  -webkit-box-shadow: 0px 0px 50px 0px rgba(34, 60, 80, 0.25);
-          box-shadow: 0px 0px 50px 0px rgba(34, 60, 80, 0.25);
-  -webkit-transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
-  -o-transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
-  transition: all cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
-}
-
-.card.active {
   width: 50%;
+}
+
+.form-check label {
+  cursor: pointer;
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.form-check-input[type="checkbox"]:checked {
+  background-color: black;
+  border: 0;
+}
+
+.form-check-input[type="checkbox"]:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .form-check:last-of-type {

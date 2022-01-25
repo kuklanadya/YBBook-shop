@@ -45,7 +45,7 @@ export default class ViewCart {
       }
       else {
          document.body.querySelector(".noitems").style.display = 'block';
-         document.body.querySelector(".checkout").style.visibility = 'hidden';
+         [...document.body.querySelectorAll(".checkout")].forEach(el => el.style.visibility = 'hidden');
       }
    }
 

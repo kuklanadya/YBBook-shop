@@ -118,7 +118,7 @@ export default class ViewFilter {
               Эссе
             </label>
           </div>
-          <button class="btn btn-primary filter-genres">Искать</button>
+          <button class="btn filter-genres">Искать</button>
          </div>
         </section>
         `;

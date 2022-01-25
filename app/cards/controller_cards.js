@@ -3,9 +3,10 @@ import ModelCards from "./model_cards.js";
 import ViewCards from "./view_cards.js";
 
 export default class ControllerCards {
+   ids = [];
    constructor() {
       this.model = new ModelCards();
-      this.view = new ViewCards();
+      this.view = new ViewCards(this.handleAddToCart, this.handleChangeQuantity);
 
       this.init();
 
@@ -14,13 +15,16 @@ export default class ControllerCards {
       this.publisher.subscribe("ON_CLICK_FILTER", this.handleFilter);
       this.publisher.subscribe("ON_CARD_CLICK", this.handleModal);
       this.publisher.subscribe("ON_SEARCH", this.handleSearch);
+      this.publisher.subscribe("ADD_TO_CART", this.getGoods);
+      this.publisher.subscribe('ON_RENDER_CART', this.view.addCloseModalListeners);
+      this.publisher.subscribe('ON_RENDER_GOODS', this.view.addChangeQuantityListener);
    }
 
    init() {
       this.view.renderHeader();
       this.model.getData().then((data) => {
          this.view.renderCards(data);
-         this.model.addGenresAccordion();
+         this.view.addGenresAccordion();
          this.publisher.notify("ON_RENDER_CARDS");
       });
    }
@@ -40,6 +44,8 @@ export default class ControllerCards {
    handleModal = (modalCardId) => {
       const modalCardObj = this.model.findModalCard(modalCardId);
       this.view.renderModalCard(modalCardObj);
+      this.publisher.notify("ON_RENDER_MODAL");
+      this.view.addToCartListener();
       this.view.addCloseModalListeners();
    };
 
@@ -48,4 +54,22 @@ export default class ControllerCards {
       this.view.renderCards(data);
       this.publisher.notify("ON_RENDER_CARDS");
    };
+
+   handleAddToCart = (event) => {
+      const id = event.target.closest('.card').dataset.id;
+      this.ids.push(id);
+      this.publisher.notify("ADD_TO_CART");
+   }
+
+   getGoods = () => {
+      const ids = this.ids;
+      const goods = this.model.findGoods(ids);
+      this.ids = [];
+      this.publisher.notify('FIND_GOODS', goods);
+   }
+
+   handleChangeQuantity = (event) => {
+      const goods = this.model.changeQuantity(event);
+      this.publisher.notify('CHANGE_GOODS', goods);
+   }
 }

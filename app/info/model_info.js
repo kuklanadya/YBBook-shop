@@ -30,4 +30,8 @@ export default class ModelInfo {
       }, true);
       return result;
    }
+
+   putDataInStorage = () => {
+      localStorage.setItem('order', JSON.stringify(this.goods));
+   }
 }

@@ -12,10 +12,6 @@ export default class ViewCart {
       document.querySelector('.interface-cart').addEventListener("click", this.renderCart);
    }
 
-   addDeleteGoodListener(listener) {
-      document.querySelector('.cart-modal-minus').addEventListener("click", listener);
-   }
-
    renderCart = () => {
       const cart = `
       <div class="backdrop show-modal">

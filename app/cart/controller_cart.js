@@ -10,11 +10,11 @@ export default class ControllerCart {
 
       this.view.init();
       this.publisher.subscribe('FIND_GOODS', this.model.getGoods);
-      this.publisher.subscribe('ON_RENDER_CART', this.renderGoods);
-      this.publisher.subscribe('CHANGE_GOODS', this.renderGoods);
+      this.publisher.subscribe('ON_RENDER_CART', this.handleRenderGoods);
+      this.publisher.subscribe('CHANGE_GOODS', this.handleRenderGoods);
    }
 
-   renderGoods = () => {
+   handleRenderGoods = () => {
       this.model.filterGoods();
       this.view.isCartEmpty(this.model.goods);
       this.view.renderGoods(this.model.goods);

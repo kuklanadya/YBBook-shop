@@ -13,7 +13,7 @@ export default class ControllerInfo {
    }
 
    sendOrderInfo = () => {
-      if (this.model.validateInput() === true) {
+      if (this.model.validateInput(this.view.inputs) === true) {
          this.model.sendInfo();
       }
    }

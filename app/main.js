@@ -5,6 +5,7 @@ import ControllerFilter from "./filter/controller_filter.js";
 import ControllerModal from "./modal/controller_modal.js";
 import ControllerSearch from "./search/controller_search.js";
 import ControllerInfo from "./info/controller_info.js";
+import ControllerOrder from "./order/controller_order.js";
 
 const controllerCards = new ControllerCards();
 const controllerSearch = new ControllerSearch();
@@ -13,3 +14,4 @@ const controllerSort = new ControllerSort();
 const controllerModal = new ControllerModal();
 const controllerCart = new ControllerCart();
 const controllerInfo = new ControllerInfo();
+const controllerOrder = new ControllerOrder();

@@ -1,8 +1,5 @@
 export default class ModelCart {
    goods = [];
-   constructor() {
-
-   }
 
    filterGoods = () => {
       this.goods = this.goods.filter(item => item.quantity > 0);

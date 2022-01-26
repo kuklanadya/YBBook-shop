@@ -22,9 +22,9 @@ export default class ModelInfo {
 
    validateInput = () => {
       let result = true;
-      const name_reg = '/([\u0401\u0451\u0410-\u044fa-z]+ ?)+/gi'; 
-      const phone_reg = '/\+380(\d{2})[-\. ]?(\d{3})[-\. ]?(\d{2})[-\. ]?(\d{2})[-\. ]?/g';
-      const email_reg = '/([a-z0-9]+\.?[a-z0-9])+@[a-z]+\.[a-z0-9]+/gi';
+      const name_reg = /([\u0401\u0451\u0410-\u044fa-z]+ ?)+/gi;
+      const phone_reg = /\+380(\d{2})[-\. ]?(\d{3})[-\. ]?(\d{2})[-\. ]?(\d{2})[-\. ]?/g;
+      const email_reg = /([a-z0-9]+\.?[a-z0-9])+@[a-z]+\.[a-z0-9]+/gi;
       if (!document.querySelector('.form-modal-name').value.match(name_reg)) {
          document.querySelector('.form-modal-name').classList.add('invalid');
          result = false;

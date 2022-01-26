@@ -10,10 +10,9 @@ export default class ModelInfo {
       fetch(url);
    }
 
-   sendInfo = (goods) => {
-      this.goods = goods;
+   sendInfo = () => {
       let text = '';
-      for (const item of goods) {
+      for (const item of this.goods) {
          text += `"${item.title}. ${item.author}" в количестве ${item.quantity},%0A`;
       }
       text = text.slice(0, -4) + '.';

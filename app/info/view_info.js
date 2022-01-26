@@ -9,6 +9,6 @@ export default class ViewInfo {
    }
 
    addListener = (listener) => {
-      document.querySelector('.cart-modal-button').addEventListener('click', listener);
+      document.querySelector('.form-modal-button').addEventListener('click', listener);
    }
 }

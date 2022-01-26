@@ -19,23 +19,15 @@ export default class ModelInfo {
       this.sendMsg(text);
    }
 
-   validateInput = () => {
-      let result = true;
-      const name_reg = /([\u0401\u0451\u0410-\u044fa-z]+ ?)+/gi;
-      const phone_reg = /\+380(\d{2})[-\. ]?(\d{3})[-\. ]?(\d{2})[-\. ]?(\d{2})[-\. ]?/g;
-      const email_reg = /([a-z0-9]+\.?)+[a-z0-9]+@[a-z]+\.[a-z0-9]+/gi;
-      if (!document.querySelector('.form-modal-name').value.match(name_reg)) {
-         document.querySelector('.form-modal-name').classList.add('invalid');
-         result = false;
-      }
-      if (!document.querySelector('.form-modal-phone').value.match(phone_reg)) {
-         document.querySelector('.form-modal-phone').classList.add('invalid');
-         result = false;
-      }
-      if (!document.querySelector('.form-modal-email').value.match(email_reg)) {
-         document.querySelector('.form-modal-email').classList.add('invalid');
-         result = false;
-      }
+   validateInput = (inputs) => {
+      const result = inputs.reduce((acc, { selector, reg }) => {
+         const input = document.querySelector(selector);
+         if (!input.value.match(reg)) {
+            input.classList.add('invalid');
+            return false;
+         }
+         return acc;
+      }, true);
       return result;
    }
 }

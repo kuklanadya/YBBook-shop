@@ -1,21 +1,23 @@
 export default class ViewFilter {
-   BODY_HEADER = document.body.querySelector("header");
+  BODY_HEADER = document.body.querySelector("header");
 
-   constructor(handleFilterClick) {
-      this.handleFilterClick = handleFilterClick;
-   }
+  constructor(handleFilterClick) {
+    this.handleFilterClick = handleFilterClick;
+  }
 
-   init() {
-      this.renderGenresFilter();
-      this.addListeners(this.handleFilterClick);
-   }
+  init() {
+    this.renderGenresFilter();
+    this.addListeners(this.handleFilterClick);
+  }
 
-   addListeners(listener) {
-      document.querySelector(".filter-genres").addEventListener("click", listener);
-   }
+  addListeners(listener) {
+    document
+      .querySelector(".filter-genres")
+      .addEventListener("click", listener);
+  }
 
-   renderGenresFilter() {
-      const checkboxGenres = `
+  renderGenresFilter() {
+    const checkboxGenres = `
         <section class="accordion" >
           <div class="accordion_header"><h4>Жанры</h4></div>
           <div class="accordion_content">
@@ -122,6 +124,6 @@ export default class ViewFilter {
          </div>
         </section>
         `;
-      this.BODY_HEADER.insertAdjacentHTML("beforeend", checkboxGenres);
-   }
+    this.BODY_HEADER.insertAdjacentHTML("beforeend", checkboxGenres);
+  }
 }

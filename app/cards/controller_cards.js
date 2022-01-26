@@ -17,6 +17,8 @@ export default class ControllerCards {
       this.publisher.subscribe("ON_SEARCH", this.handleSearch);
       this.publisher.subscribe("ADD_TO_CART", this.getGoods);
       this.publisher.subscribe('ON_RENDER_CART', this.view.addCloseModalListeners);
+      this.publisher.subscribe('ON_RENDER_FORM', this.view.addCloseModalListeners);
+      this.publisher.subscribe('ON_RENDER_HISTORY', this.view.addCloseModalListeners);
       this.publisher.subscribe('ON_RENDER_GOODS', this.view.addChangeQuantityListener);
    }
 
@@ -56,6 +58,7 @@ export default class ControllerCards {
    };
 
    handleAddToCart = (event) => {
+      event.preventDefault();
       const id = event.target.closest('.card').dataset.id;
       this.ids.push(id);
       this.publisher.notify("ADD_TO_CART");

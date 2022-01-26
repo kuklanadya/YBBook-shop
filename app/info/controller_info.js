@@ -14,12 +14,12 @@ export default class ControllerInfo {
 
    sendOrderInfo = () => {
       if (this.model.validateInput() === true) {
-         this.model.sendInfo(this.goods);
+         this.model.sendInfo();
       }
    }
 
    getGoods = (goods) => {
-      this.goods = goods;
+      this.model.goods = goods;
    }
 
    onRenderForm = () => {

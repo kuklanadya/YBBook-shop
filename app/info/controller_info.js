@@ -8,19 +8,21 @@ export default class ControllerInfo {
       this.view = new ViewInfo(this.sendOrderInfo);
 
       this.publisher = new Publisher();
-      this.publisher.subscribe('ON_RENDER_CART', this.onRenderCart);
-      this.publisher.subscribe('SEND_ORDER', this.sendOrderInfo);
-   }
-
-   handleAddToCard = id => {
-      //this.model.updateCart(id);
+      this.publisher.subscribe('ON_RENDER_FORM', this.onRenderForm);
+      this.publisher.subscribe('ON_RENDER_GOODS', this.getGoods);
    }
 
    sendOrderInfo = () => {
-      this.model.sendInfo();
+      if (this.model.validateInput() === true) {
+         this.model.sendInfo(this.goods);
+      }
    }
 
-   onRenderCart = () => {
+   getGoods = (goods) => {
+      this.goods = goods;
+   }
+
+   onRenderForm = () => {
       this.view.init();
    }
 }

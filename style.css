@@ -26,7 +26,7 @@ header {
 }
 
 .select-sort {
-   padding: 10px 10px 35px;
+   padding: 10px;
    line-height: 1.2;
    font-size: 20px;
    max-height: 35px;
@@ -505,7 +505,7 @@ label {
 }
 
 .cart-modal-sum {
-   margin-bottom: 0;
+   margin: 0;
 }
 
 .cart-modal-add {
@@ -546,8 +546,75 @@ label {
    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+.cool {
+   z-index: 200;
+}
+
+.form-modal {
+   position: relative;
+   width: 300px;
+   height: 300px;
+   background-color: white;
+   padding: 50px;
+   text-transform: uppercase;
+   -webkit-box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
+   box-shadow: 0px 5px 100px 50px rgba(34, 60, 80, 0.2);
+}
+
+.form-modal-title {
+   margin-bottom: 10px;
+}
+
+.form-modal-body {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   gap: 10px;
+}
+
+.form-modal-input {
+   border: 1px solid rgba(0, 0, 0, 0.5);
+   color: black;
+   padding-left: 5px;
+}
+
+.form-modal-input::-webkit-input-placeholder {
+   text-transform: uppercase;
+   color: rgba(0, 0, 0, 0.5);
+}
+
+.form-modal-input:-ms-input-placeholder {
+   text-transform: uppercase;
+   color: rgba(0, 0, 0, 0.5);
+}
+
+.form-modal-input::-ms-input-placeholder {
+   text-transform: uppercase;
+   color: rgba(0, 0, 0, 0.5);
+}
+
+.form-modal-input::placeholder {
+   text-transform: uppercase;
+   color: rgba(0, 0, 0, 0.5);
+}
+
+.form-modal-button {
+   margin-top: 10px;
+}
+
 .noitems {
    padding: 0 10px;
+}
+
+.invalid {
+   border: 1px solid #d00040;
 }
 
 ::-webkit-scrollbar {
@@ -589,8 +656,22 @@ label {
    .card {
       width: 100%;
    }
+   .cart-modal {
+      padding-right: 10px;
+   }
+   .cart-modal .close::before,
+   .cart-modal .close::after {
+      top: 3px;
+      right: 10px;
+   }
    .interface-title {
       font-size: 20px;
+   }
+   .interface-history a img,
+   .interface-cart a img,
+   .input-group img {
+      height: 24px;
+      width: 24px;
    }
    .accordion h4,
    .select-sort,

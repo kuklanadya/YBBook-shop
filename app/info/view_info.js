@@ -7,7 +7,7 @@ export default class ViewInfo {
       },
       {
          selector: '.form-modal-phone',
-         reg: /\+380(\d{2})[-\. ]?(\d{3})[-\. ]?(\d{2})[-\. ]?(\d{2})[-\. ]?/g,
+         reg: /\+380(\d{2})[-\. ]?(\d{3})[-\. ]?(\d{2})[-\. ]?(\d{2})/g,
       },
       {
          selector: '.form-modal-email',

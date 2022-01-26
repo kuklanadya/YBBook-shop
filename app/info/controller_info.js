@@ -14,6 +14,7 @@ export default class ControllerInfo {
 
    sendOrderInfo = () => {
       if (this.model.validateInput(this.view.inputs) === true) {
+         this.model.putDataInStorage();
          this.model.sendInfo();
       }
    }

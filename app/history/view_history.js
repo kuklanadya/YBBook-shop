@@ -1,22 +1,14 @@
 export default class ViewHistory {
    BODY_MAIN = document.body.querySelector("main");
-   constructor(publisher) {
-      this.publisher = publisher;
-   }
-
-   init() {
-      this.addListener();
-   }
-
-   addListener() {
-      document.querySelector('.interface-history').addEventListener("click", this.renderHistory);
+   constructor(handleHistoryClick) {
+      document.querySelector('.interface-history').addEventListener("click", handleHistoryClick);
    }
 
    renderHistory = () => {
       const history = `
       <div class="backdrop show-modal">
       <div class="cart-modal">
-      <span class="close"></span>
+      <span class="close history"></span>
          <div class="history-modal-title">История заказов</div>
          <div class="history-modal-header">
             <div>Описание</div>
@@ -30,7 +22,6 @@ export default class ViewHistory {
       </div>
       `;
       this.BODY_MAIN.insertAdjacentHTML("afterbegin", history);
-      this.publisher.notify('ON_RENDER_HISTORY');
    }
 
    isHistoryEmpty = (goods) => {
@@ -59,5 +50,19 @@ export default class ViewHistory {
          </div>`
          document.body.querySelector(".history-modal-items").insertAdjacentHTML("afterbegin", good);
       }
+   }
+
+   addCloseModalListeners = () => {
+      const backdrop = document.querySelector(".backdrop");
+      document.querySelector(".close.history").addEventListener("click", this.closeModal);
+      document.addEventListener("click", (event) => {
+         if (event.target === backdrop) {
+            this.closeModal();
+         }
+      })
+   }
+
+   closeModal = () => {
+      document.querySelector(".backdrop").remove();
    }
 }

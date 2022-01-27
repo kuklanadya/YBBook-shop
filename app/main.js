@@ -8,7 +8,6 @@ import ControllerInfo from "./info/controller_info.js";
 import ControllerOrder from "./order/controller_order.js";
 import ControllerHistory from "./history/controller_history.js";
 
-
 const controllerCards = new ControllerCards();
 const controllerSearch = new ControllerSearch();
 const controllerFilter = new ControllerFilter();
@@ -18,4 +17,3 @@ const controllerCart = new ControllerCart();
 const controllerInfo = new ControllerInfo();
 const controllerOrder = new ControllerOrder();
 const controllerHistory = new ControllerHistory();
-

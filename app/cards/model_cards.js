@@ -1,7 +1,6 @@
 export default class ModelCards {
    URL_SHEET =
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vQirlHBLU299aaZ7rqDdrC48Cb50Tb-8s_YK7-XIIpoFAS9uy9pnDki0uuxehglgHYLID9xt7q4wWRg/pub?output=tsv";
-   goods = [];
 
    getData() {
       return fetch(this.URL_SHEET)
@@ -44,11 +43,6 @@ export default class ModelCards {
       return this.data;
    }
 
-   findModalCard(modalCardId) {
-      const modalCardObj = this.data.find((card) => card.id === modalCardId);
-      return modalCardObj;
-   }
-
    getBooksByQuery(searchQuery) {
       const input = document.querySelector(".form-control");
       const getBooksByTitle = this.data.filter((s) =>
@@ -65,34 +59,6 @@ export default class ModelCards {
          return this.data;
       }
       return getBooks;
-   }
-
-   findGoods = (ids) => {
-      let goods = [];
-      for (const id of ids) {
-         let i = 0;
-         goods = goods.concat(this.data.filter(card => card.id === id));
-         if (!goods[i].quantity) {
-            goods[i].quantity = 0;
-         }
-         goods[i].quantity += 1;
-         i++;
-      }
-      this.goods = Array.from(new Set(this.goods.concat(goods)));
-      return goods;
-   }
-
-   changeQuantity(event) {
-      const item = event.target.closest('.cart-modal-item');
-      const id = item.dataset.id;
-      const itemObj = this.goods.find(item => item.id === id);
-      if (event.target.classList.contains('cart-modal-plus')) {
-         itemObj.quantity += 1;
-      }
-      if (event.target.classList.contains('cart-modal-minus')) {
-         itemObj.quantity -= 1;
-      }
-      return this.goods;
    }
 }
 

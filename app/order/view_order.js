@@ -1,15 +1,11 @@
 export default class ViewOrder {
    BODY_MAIN = document.body.querySelector("main");
-   constructor(publisher) {
-      this.publisher = publisher;
+   constructor(handleFormClick) {
+      this.handleFormClick = handleFormClick;
    }
 
-   init() {
-      this.addListener();
-   }
-
-   addListener = () => {
-      document.querySelector('.cart-modal-button').addEventListener('click', this.renderForm);
+   addClickListener() {
+      document.querySelector('.cart-modal-button').addEventListener('click', this.handleFormClick);
    }
 
    addInputListener = () => {
@@ -27,7 +23,7 @@ export default class ViewOrder {
       const form = `
       <div class="backdrop show-modal cool">
          <div class="form-modal">
-            <span class="close"></span>
+            <span class="close form"></span>
             <div class="form-modal-body">
                <div class="form-modal-title">Введите ваши данные</div>
                <div><input type="text" class="form-modal-input form-modal-name" maxlength="50" placeholder="Имя"></div>
@@ -39,6 +35,19 @@ export default class ViewOrder {
       </div>
       `;
       this.BODY_MAIN.insertAdjacentHTML("afterbegin", form);
-      this.publisher.notify('ON_RENDER_FORM');
+   }
+
+   addCloseModalListeners = () => {
+      const backdrop = document.querySelector(".backdrop");
+      document.querySelector(".close.form").addEventListener("click", this.closeModal);
+      document.addEventListener("click", (event) => {
+         if (event.target === backdrop) {
+            this.closeModal();
+         }
+      })
+   }
+
+   closeModal = () => {
+      document.querySelector(".backdrop").remove();
    }
 }

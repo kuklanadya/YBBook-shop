@@ -1,15 +1,17 @@
 export default class ViewCart {
    BODY_MAIN = document.body.querySelector("main");
-   constructor(publisher) {
-      this.publisher = publisher;
+   constructor(handleCartClick) {
+      document.querySelector('.interface-cart').addEventListener("click", handleCartClick);
    }
 
-   init() {
-      this.addListener();
+   addChangeQuantityListener = (listener) => {
+      [...document.querySelectorAll(".cart-modal-add")]
+         .forEach(btn => btn.addEventListener('click', listener));
    }
 
-   addListener() {
-      document.querySelector('.interface-cart').addEventListener("click", this.renderCart);
+   addToCartListener = (listener) => {
+      [...document.querySelectorAll(".buy")]
+         .forEach(btn => btn.addEventListener('click', listener));
    }
 
    renderCart = () => {
@@ -31,24 +33,27 @@ export default class ViewCart {
       </div>
       `;
       this.BODY_MAIN.insertAdjacentHTML("afterbegin", cart);
-      this.publisher.notify('ON_RENDER_CART');
    }
 
    isCartEmpty = (goods) => {
-      if (goods.length > 0) {
-         document.body.querySelector(".noitems").style.display = 'none';
-         [...document.body.querySelectorAll(".checkout")].forEach(el => el.style.visibility = 'visible');
+      const cssOptions = {
+         true: {
+            display: 'none',
+            visibility: 'visible',
+         },
+         false: {
+            display: 'block',
+            visibility: 'hidden',
+         }
       }
-      else {
-         document.body.querySelector(".noitems").style.display = 'block';
-         [...document.body.querySelectorAll(".checkout")].forEach(el => el.style.visibility = 'hidden');
-      }
+      const { display, visibility } = cssOptions[goods.length > 0];
+      document.body.querySelector(".noitems").style.display = display;
+      [...document.body.querySelectorAll(".checkout")].forEach(el => el.style.visibility = visibility);
    }
 
-   renderGoods = (goods) => {
+   renderGoods = (goods, sum) => {
       document.body.querySelector(".cart-modal-items").innerHTML = '';
       document.body.querySelector(".cart-modal-sum").innerHTML = '';
-      let sum = 0;
       for (const { id, title, author, image, price, quantity } of goods) {
          const good = `
          <div class="cart-modal-item" data-id="${id}">
@@ -67,8 +72,21 @@ export default class ViewCart {
             <div class="cart-modal-price">${price}₴</div>
          </div>`
          document.body.querySelector(".cart-modal-items").insertAdjacentHTML("afterbegin", good);
-         sum += quantity * price;
       }
       document.body.querySelector(".cart-modal-sum").insertAdjacentHTML("afterbegin", `Общая сумма: <span class="cart-modal-price">${sum}₴</span>`)
+   }
+
+   addCloseModalListeners = () => {
+      const backdrop = document.querySelector(".backdrop");
+      document.querySelector(".close").addEventListener("click", this.closeModal);
+      document.addEventListener("click", (event) => {
+         if (event.target === backdrop) {
+            this.closeModal();
+         }
+      })
+   }
+
+   closeModal = () => {
+      document.querySelector(".backdrop").remove();
    }
 }

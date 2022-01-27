@@ -1,10 +1,10 @@
 import Publisher from "../publisher.js";
-import ViewInfo from "./view_order.js";
+import ViewOrder from "./view_order.js";
 
 export default class ControllerOrder {
    constructor() {
       this.publisher = new Publisher();
-      this.view = new ViewInfo(this.publisher);
+      this.view = new ViewOrder(this.handleFormClick);
 
       this.publisher.subscribe('ON_RENDER_CART', this.onRenderCart);
       this.publisher.subscribe('ON_RENDER_FORM', this.onRenderForm);
@@ -12,9 +12,15 @@ export default class ControllerOrder {
 
    onRenderForm = () => {
       this.view.addInputListener();
+      this.view.addCloseModalListeners();
    }
 
    onRenderCart = () => {
-      this.view.init();
+      this.view.addClickListener();
+   }
+
+   handleFormClick = () => {
+      this.view.renderForm();
+      this.publisher.notify('ON_RENDER_FORM');
    }
 }

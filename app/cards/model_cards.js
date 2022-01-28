@@ -40,7 +40,7 @@ export default class ModelCards {
          let filtredSubarray = this.DATA.filter((d) => d.genre.includes(type));
          this.data = this.data.concat(filtredSubarray);
       }
-      return this.data;
+      return this.data.length > 0 ? this.data : this.DATA;
    }
 
    getBooksByQuery(searchQuery) {
@@ -61,4 +61,3 @@ export default class ModelCards {
       return getBooks;
    }
 }
-

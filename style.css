@@ -245,7 +245,7 @@ label {
    position: absolute;
    width: 100%;
    height: 100%;
-   background: url("/img/down-arrow.svg") center right no-repeat;
+   background: url("./img/down-arrow.svg") center right no-repeat;
    top: 0;
    right: 20px;
    background-size: 12px;
@@ -580,7 +580,7 @@ label {
    left: 7px;
    width: 14px;
    height: 14px;
-   background: url("/img/minus.svg") no-repeat;
+   background: url("./img/minus.svg") no-repeat;
 }
 
 .cart-modal-plus::before {
@@ -590,7 +590,7 @@ label {
    right: 7px;
    width: 14px;
    height: 14px;
-   background: url("/img/plus.svg") no-repeat;
+   background: url("./img/plus.svg") no-repeat;
 }
 
 .cart-modal-add:hover {

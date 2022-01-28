@@ -12,6 +12,7 @@ export default class ControllerCart {
       this.publisher.subscribe('ON_RENDER_MODAL', this.onRenderModal);
       this.publisher.subscribe('ON_RENDER_CART', this.handleRenderGoods);
       this.publisher.subscribe('ON_CHANGE_GOODS', this.handleRenderGoods);
+      this.publisher.subscribe('SEND_INFO', this.clearCart);
    }
 
    onRenderModal = () => {
@@ -22,12 +23,17 @@ export default class ControllerCart {
       this.model.data = data;
    }
 
+   clearCart = () => {
+      this.model.goods.length = 0;
+   }
+
    handleRenderGoods = () => {
       const goods = this.model.filterGoods();
       const sum = this.model.countSum();
       this.view.isCartEmpty(goods);
       this.view.renderGoods(goods, sum);
       this.view.addChangeQuantityListener(this.handleChangeQuantity);
+      this.publisher.notify('ON_RENDER_GOODS', goods);
    }
 
    handleCartClick = () => {
@@ -47,4 +53,4 @@ export default class ControllerCart {
       this.model.ids.push(id);
       this.model.findAddedGoods();
    }
-} 
+}

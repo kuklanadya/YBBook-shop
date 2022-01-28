@@ -36,10 +36,10 @@ export default class ViewCards {
          <h2 class="interface-title">YBBooks</h2>
          <div class="interface-icons">
             <div class="interface-history">
-               <a><img src="/img/history.svg" alt="history"></a>
+               <a><img src="./img/history.svg" alt="history"></a>
             </div>
             <div class="interface-cart">
-            <a><img src="/img/cart.svg" alt="history"></a>
+            <a><img src="./img/cart.svg" alt="history"></a>
             </div>
          </div>
       </div>`;

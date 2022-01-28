@@ -194,10 +194,8 @@ label {
       }
    }
    &_content {
-      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       max-height: 0px;
       overflow: hidden;
-      transition: all 0.5s linear;
       margin-left: 10px;
    }
    &_content.active {
@@ -240,8 +238,7 @@ label {
       text-align: right;
    }
    &-desc {
-      margin-bottom: 10px;
-      max-height: 80px;
+      max-height: 75px;
       overflow-y: auto;
       text-transform: none;
    }
@@ -474,16 +471,20 @@ label {
    }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
    .card {
       width: 50%;
    }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 768px) {
    .card {
       width: 100%;
+      &.active {
+         flex-direction: column;
+      }
    }
+
    .interface-title {
       font-size: 24px;
    }

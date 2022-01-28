@@ -5,7 +5,7 @@ import ViewInfo from "./view_info.js";
 export default class ControllerInfo {
    constructor() {
       this.model = new ModelInfo();
-      this.view = new ViewInfo(this.sendOrderInfo);
+      this.view = new ViewInfo();
 
       this.publisher = new Publisher();
       this.publisher.subscribe('ON_RENDER_FORM', this.onRenderForm);
@@ -16,6 +16,7 @@ export default class ControllerInfo {
       if (this.model.validateInput(this.view.inputs) === true) {
          this.model.putDataInStorage();
          this.model.sendInfo();
+         this.publisher.notify('SEND_INFO');
       }
    }
 
@@ -24,6 +25,6 @@ export default class ControllerInfo {
    }
 
    onRenderForm = () => {
-      this.view.init();
+      this.view.addListener(this.sendOrderInfo);
    }
 }

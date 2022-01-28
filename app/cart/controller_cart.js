@@ -24,7 +24,8 @@ export default class ControllerCart {
    }
 
    clearCart = () => {
-      this.model.goods.length = 0;
+      this.model.goods = [];
+      this.handleRenderGoods();
    }
 
    handleRenderGoods = () => {

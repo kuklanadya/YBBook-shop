@@ -40,7 +40,7 @@ header {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
-   background: url("/img/down-arrow.svg") center right 10px no-repeat;
+   background: url("./img/down-arrow.svg") center right 10px no-repeat;
    background-size: 12px;
 }
 

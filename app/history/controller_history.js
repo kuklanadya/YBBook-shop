@@ -9,11 +9,14 @@ export default class ControllerHistory {
       this.model = new ModelHistory();
 
       this.publisher.subscribe('ON_RENDER_HISTORY', this.handleRenderOrders);
-      
+      this.publisher.subscribe('SEND_INFO', this.getOrder);
+   }
+
+   getOrder = () => {
+      this.model.getDataFromStorage();
    }
 
    handleRenderOrders = () => {
-      this.model.getDataFromStorage();
       this.view.isHistoryEmpty(this.model.goods);
       this.view.renderOrders(this.model.goods);
    }

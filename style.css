@@ -647,7 +647,7 @@ label {
       -ms-flex-direction: column;
       flex-direction: column;
    }
-   .card-img {
+   .card.active .card-img {
       margin: 0;
       padding-bottom: 0;
    }

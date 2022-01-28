@@ -1,5 +1,5 @@
 export default class ModelHistory {
-   goods = [];
+   goods = JSON.parse(localStorage.getItem('order') ?? 0);
 
    getDataFromStorage() {
       this.goods = this.goods.concat(JSON.parse(localStorage.getItem('order') ?? 0));

@@ -7,9 +7,10 @@ export default class ControllerSearch {
       this.view.init();
       this.publisher = new Publisher();
    }
+
    onSearch = (event) => {
       event.preventDefault();
-      this.searchQuery = event.target.value;
-      this.publisher.notify("ON_SEARCH", this.searchQuery);
+      const searchQuery = event.target.value;
+      this.publisher.notify("ON_SEARCH", searchQuery);
    };
 }

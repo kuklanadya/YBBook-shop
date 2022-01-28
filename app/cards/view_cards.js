@@ -39,7 +39,7 @@ export default class ViewCards {
                <a><img src="./img/history.svg" alt="history"></a>
             </div>
             <div class="interface-cart">
-            <a><img src="./img/cart.svg" alt="history"></a>
+            <a><img src="./img/cart.svg" alt="cart"></a>
             </div>
          </div>
       </div>`;
